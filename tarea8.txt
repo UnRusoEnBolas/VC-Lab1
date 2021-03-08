@@ -1,9 +1,0 @@
-El sistema que se ha ideado se basa en obtener una aproximación muy cercana a la velocidad de los automóviles utilizando dos puntos fijos de referencia de la imagen y una medición del tiempo entre estos dos puntos. El mayor problema de este planteamiento es la obtención de la distancia real a traves de una imagen. Para solucionar este inconveniente se ha investigado cual es la longitud por norma que han de tener las líneas discontinuas de las carreteras. En el caso de EEUU esta medida se establece en 10 pies ~ 3,048 metros. Teniendo en cuenta estos 3 metros de longitud de línea podemos contar las líneas bien marcadas y completas que se ven en la imagen y aplicar la siguiente fórmula:
-
-Velocidad (km/h) = ( [ (nLineas*2 - 1) * 3,048] / 1000 ) / ( tiempo entre primera y última línea / 3600 )
-
-en caso de no conocer o no poder medir el tiempo, se puede aplicar la siguiente fórmula:
-
-Velocidad (km/h) = ( [ (nLineas*2 - 1) * 3,048] / 1000 ) / ( nFrames entre primera y última línea / framerate / 3600 )
-
-Ambas nos dan resultados de km/h, la diferencia reside en si se puede obtener fácilmente el tiempo transcurrido entre dos eventos o si se utiliza los frames que han pasado entre los dos eventos y se divida entre la freqüencia de imagenes por segundo. Gracias a este planteamiento podemos obtener una aproximación bastante precisa con solo una seqüencia de video.
