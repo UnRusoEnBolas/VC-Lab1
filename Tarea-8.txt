@@ -15,17 +15,14 @@ Cómo podemos hacerlo mejor?
 
 Bien, hasta aquí, como hemos comentado anteriormente, se necesita que la distancia real entre el punto A y el punto B sea proporcionada previamente "de manera manual".
 Sin embargo podemos aprovecharnos de la escena para conocer la distancia que hay entre un punto A y B debido a que disponemos de indicadores: las líneas discontinuas de la carretera.
-Por ejemplo, en el caso de EEUU la longitud de cada línea discontinua y la distancia entre ellas es de exactamente 10 pies, unos 3.048m.
 Con este dato sólo necesitaremos añadir a nuestro algoritmo la capacidad de detectar estas líneas discontinuas en la escena (no debería ser nada complicado) y elegir (por un humano o, de nuevo, de manera algorítmica) dos de estas líneas
 y marcar el principio de una como punto "A" y el final de otra como punto "B" (a más distancia entre ellas mejor). Evidentemente se seleccionarían dos lineas que tuvieran buena visibilidad en la escena y que no quedaran cortadas.
 
 Con esto en mente podríamos obtener "D" de la siguiente manera:
 
-D (metros) = (nLineas*2-1)*3.048
-o más general (y sin suponer que la distancias entre líneas son iguales a la longitud de estas):
 D (metros) = (nLineas*lL) + ([nLineas-1]*dL)
 donde "lL" es la longitud de las líneas discontinuas y dL es la ditancia de separación entre estas.
 
 Por lo tanto, obtenemos así una manera de calcular la velocidad de un vehículo en la escena haciendo uso de la segmentación de este.
-Además proponemos una maneras automatizadas mediante visión por computador que sólo tendrían como requisito previo conocer el framerate de la cámara.
+Además proponemos una maneras automatizadas mediante visión por computador que sólo tendrían como requisito previo conocer el framerate de la cámara e introducir los datos sobre las líneas discontinuas.
 Si no, se puede simplemnete usar como input el cálculo empírico de la distancia real entre dos puntos que se marcarían dentro del algoritmo como punto "A", de entrada y punto "B" de salida.
